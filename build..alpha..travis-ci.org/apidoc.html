@@ -1,0 +1,266 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api-documentation for
+    <a
+
+        href="https://github.com/vohof/gulp-livereload#readme"
+
+    >gulp-livereload (v3.8.1)</a>
+</h1>
+<h4>Gulp plugin for livereload.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-livereload">module gulp-livereload</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-livereload.changed">
+            function <span class="apidocSignatureSpan">gulp-livereload.</span>changed
+            <span class="apidocSignatureSpan">(filePath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-livereload.listen">
+            function <span class="apidocSignatureSpan">gulp-livereload.</span>listen
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-livereload.middleware">
+            function <span class="apidocSignatureSpan">gulp-livereload.</span>middleware
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-livereload.reload">
+            function <span class="apidocSignatureSpan">gulp-livereload.</span>reload
+            <span class="apidocSignatureSpan">(filePath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-livereload.</span>options</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-livereload" id="apidoc.module.gulp-livereload">module gulp-livereload</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-livereload.changed" id="apidoc.element.gulp-livereload.changed">
+        function <span class="apidocSignatureSpan">gulp-livereload.</span>changed
+        <span class="apidocSignatureSpan">(filePath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">changed = function (filePath) {
+  if (!exports.server) {
+    debug(&#x27;no server listening, nothing notified.&#x27;);
+    return;
+  }
+  if (typeof filePath === &#x27;object&#x27;) {
+    filePath = filePath.path;
+  }
+  if (options.basePath) {
+    filePath = &#x27;/&#x27; + relative(options.basePath, filePath);
+  }
+
+  exports.server.changed({ body: { files: [ filePath ] } });
+
+  if (!options.quiet) {
+    gutil.log(magenta(filePath) + &#x27; reloaded.&#x27;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Creates a stream which notifies the livereload server on what changed.
+
+### livereload.listen([options])
+
+Starts a livereload server. It takes an optional options parameter that is the same as the one noted above. Also you dont need to
+ worry with multiple instances as this function will end immidiately if the server is already runing.
+
+### livereload.<span class="apidocCodeKeywordSpan">changed</span>(path)
+
+Alternatively, you can call this function to send changes to the livereload server. You should provide either a simple string or
+ an object, if an object is given it expects the object to have a `path` property.
+
+&#x3e; NOTE: Calling this function without providing a `path` will do nothing.
+
+### livereload.reload([file])
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-livereload.listen" id="apidoc.element.gulp-livereload.listen">
+        function <span class="apidocSignatureSpan">gulp-livereload.</span>listen
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listen = function (opts, cb) {
+  if (exports.server) return;
+
+  if (typeof opts === &#x27;number&#x27;) {
+    opts = { port: opts };
+  } else if (typeof opts === &#x27;function&#x27;) {
+    cb = opts;
+    opts = {};
+  }
+
+  options = _assign(options, opts);
+  exports.server = new minilr.Server(options);
+  exports.server.listen(options.port, options.host, function() {
+    debug(&#x27;now listening on port %d&#x27;, options.port);
+    if(typeof cb === &#x27;function&#x27;) cb.apply(exports.server, arguments);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  gulp.src(&#x27;less/*.less&#x27;)
+    .pipe(less())
+    .pipe(gulp.dest(&#x27;css&#x27;))
+    .pipe(livereload());
+});
+
+gulp.task(&#x27;watch&#x27;, function() {
+  livereload.<span class="apidocCodeKeywordSpan">listen</span>();
+  gulp.watch(&#x27;less/*.less&#x27;, [&#x27;less&#x27;]);
+});
+```
+
+**See [examples](examples)**.
+
+API &#x26; Variables
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-livereload.middleware" id="apidoc.element.gulp-livereload.middleware">
+        function <span class="apidocSignatureSpan">gulp-livereload.</span>middleware
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function middleware(opts) {
+  var srv = new Server(opts);
+  servers.push(srv);
+  return function minilr(req, res, next) {
+    srv.handler(req, res, next);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-livereload.reload" id="apidoc.element.gulp-livereload.reload">
+        function <span class="apidocSignatureSpan">gulp-livereload.</span>reload
+        <span class="apidocSignatureSpan">(filePath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reload = function (filePath) {
+    exports.changed(filePath || options.reloadPage);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### livereload.changed(path)
+
+Alternatively, you can call this function to send changes to the livereload server. You should provide either a simple string or
+ an object, if an object is given it expects the object to have a `path` property.
+
+&#x3e; NOTE: Calling this function without providing a `path` will do nothing.
+
+### livereload.<span class="apidocCodeKeywordSpan">reload</span>([file])
+
+You can also tell the browser to refresh the entire page. This assumes the page is called `index.html`, you can change it by providing
+ an **optional** `file` path or change it globally with the options `reloadPage`.
+
+###  livereload.middleware
+
+You can also directly access the middleware of the underlying server instance (mini-lr.middleware) for hookup through express, connect
+, or some other middleware app
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
