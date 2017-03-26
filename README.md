@@ -3,7 +3,7 @@
 
 [![NPM](https://nodei.co/npm/gulp-livereload.png?downloads=true)](https://www.npmjs.com/package/gulp-livereload)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-gulp-livereload/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-gulp_livereload_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-gulp-livereload/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-gulp-livereload/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-gulp-livereload_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-gulp-livereload/build..beta..travis-ci.org/apidoc.html)
 
 ![package-listing](https://npmdoc.github.io/node-npmdoc-gulp-livereload/build/screen-capture.npmPackageListing.svg)
 
