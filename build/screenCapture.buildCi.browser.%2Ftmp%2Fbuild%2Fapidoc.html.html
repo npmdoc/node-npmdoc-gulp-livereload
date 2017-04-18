@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-livereload.gulp-livereload">
+            function <span class="apidocSignatureSpan"></span>gulp-livereload
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.gulp-livereload.changed">
             function <span class="apidocSignatureSpan">gulp-livereload.</span>changed
             <span class="apidocSignatureSpan">(filePath)</span>
@@ -102,6 +111,31 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.gulp-livereload" id="apidoc.module.gulp-livereload">module gulp-livereload</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-livereload.gulp-livereload" id="apidoc.element.gulp-livereload.gulp-livereload">
+        function <span class="apidocSignatureSpan"></span>gulp-livereload
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gulp-livereload = function (opts) {
+  options = _assign(options, opts);
+
+  var glr = es.map(function(file, done) {
+    var filePath = file.path;
+    exports.changed(filePath);
+    done(null, file);
+  });
+
+  if (options.start) exports.listen(options);
+
+  return glr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
