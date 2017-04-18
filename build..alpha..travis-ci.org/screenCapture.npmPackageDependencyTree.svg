@@ -66,7 +66,7 @@
 <tspan x="10" y="1018">  │ ├── object-assign@3.0.0 </tspan>
 <tspan x="10" y="1034">  │ ├── replace-ext@0.0.1 </tspan>
 <tspan x="10" y="1050">  │ ├─┬ through2@2.0.3 </tspan>
-<tspan x="10" y="1066">  │ │ ├─┬ readable-stream@2.2.8 </tspan>
+<tspan x="10" y="1066">  │ │ ├─┬ readable-stream@2.2.9 </tspan>
 <tspan x="10" y="1082">  │ │ │ ├── buffer-shims@1.0.0 </tspan>
 <tspan x="10" y="1098">  │ │ │ ├── core-util-is@1.0.2 </tspan>
 <tspan x="10" y="1114">  │ │ │ ├── inherits@2.0.3 </tspan>
