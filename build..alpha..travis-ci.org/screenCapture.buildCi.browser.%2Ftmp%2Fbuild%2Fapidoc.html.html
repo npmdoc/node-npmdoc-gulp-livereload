@@ -164,22 +164,21 @@
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+ */
 
-Creates a stream which notifies the livereload server on what changed.
+module.exports = exports = function(opts) {
+  options = _assign(options, opts);
 
-### livereload.listen([options])
+  var glr = es.map(function(file, done) {
+    var filePath = file.path;
+    exports.<span class="apidocCodeKeywordSpan">changed</span>(filePath);
+    done(null, file);
+  });
 
-Starts a livereload server. It takes an optional options parameter that is the same as the one noted above. Also you dont need to
- worry with multiple instances as this function will end immidiately if the server is already runing.
+  if (options.start) exports.listen(options);
 
-### livereload.<span class="apidocCodeKeywordSpan">changed</span>(path)
-
-Alternatively, you can call this function to send changes to the livereload server. You should provide either a simple string or
- an object, if an object is given it expects the object to have a `path` property.
-
-&gt; NOTE: Calling this function without providing a `path` will do nothing.
-
-### livereload.reload([file])
+  return glr;
+};
 ...</pre></li>
     </ul>
 
@@ -210,21 +209,21 @@ Alternatively, you can call this function to send changes to the livereload serv
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  gulp.src('less/*.less')
-    .pipe(less())
-    .pipe(gulp.dest('css'))
-    .pipe(livereload());
-});
 
-gulp.task('watch', function() {
-  livereload.<span class="apidocCodeKeywordSpan">listen</span>();
-  gulp.watch('less/*.less', ['less']);
-});
-```
+  var glr = es.map(function(file, done) {
+    var filePath = file.path;
+    exports.changed(filePath);
+    done(null, file);
+  });
 
-**See [examples](examples)**.
+  if (options.start) exports.<span class="apidocCodeKeywordSpan">listen</span>(options);
 
-API &amp; Variables
+  return glr;
+};
+
+// Note: This is a good way to directly set the settings once throughout
+// the program, a reference to the global options
+exports.options = options;
 ...</pre></li>
     </ul>
 

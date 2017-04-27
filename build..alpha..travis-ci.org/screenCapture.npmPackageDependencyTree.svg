@@ -12,8 +12,8 @@
 <tspan x="10" y="154">  │ │ └── ansi-regex@0.2.1 </tspan>
 <tspan x="10" y="170">  │ ├── strip-ansi@0.3.0 </tspan>
 <tspan x="10" y="186">  │ └── supports-color@0.2.0 </tspan>
-<tspan x="10" y="202">  ├─┬ debug@2.6.3 </tspan>
-<tspan x="10" y="218">  │ └── ms@0.7.2 </tspan>
+<tspan x="10" y="202">  ├─┬ debug@2.6.5 </tspan>
+<tspan x="10" y="218">  │ └── ms@0.7.3 </tspan>
 <tspan x="10" y="234">  ├─┬ event-stream@3.3.4 </tspan>
 <tspan x="10" y="250">  │ ├── duplexer@0.1.1 </tspan>
 <tspan x="10" y="266">  │ ├── from@0.1.7 </tspan>
