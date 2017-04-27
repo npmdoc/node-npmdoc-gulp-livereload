@@ -1,6 +1,6 @@
 # npmdoc-gulp-livereload
 
-#### api documentation for  [gulp-livereload (v3.8.1)](https://github.com/vohof/gulp-livereload#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-livereload.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-livereload) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-livereload.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-livereload)
+#### basic api documentation for  [gulp-livereload (v3.8.1)](https://github.com/vohof/gulp-livereload#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-livereload.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-livereload) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-livereload.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-livereload)
 
 #### Gulp plugin for livereload.
 
@@ -64,7 +64,8 @@
     "scripts": {
         "test": "mocha"
     },
-    "version": "3.8.1"
+    "version": "3.8.1",
+    "bin": {}
 }
 ```
 
